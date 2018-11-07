@@ -50,7 +50,7 @@ return document.getElementById("result").innerHTML = rot13;
 
 ## Usage example
 
-See a live version - https://alexdisdier.github.io/shift-Cipher/
+See a live version - https://alexdisdier.github.io/shift-cipher/
 
 ## Directory Structure
 
