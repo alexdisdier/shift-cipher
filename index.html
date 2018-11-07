@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="description" content="This is a simple Caesars (shift) Cipher rot13 using plain and pure javascript.">
+  <meta name="author" content="Alex Disdier">
+
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/default-favicon.png" />
+
+  <title>Caesars Cipher</title>
+  <link rel="stylesheet" href="styles/normalize.min.css" />
+  <link rel="stylesheet" href="styles/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles/main.min.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Caesars Cipher</h1>
+
+    <div id="app">
+      <form>
+        <label for="js-rot13-value">Type a string to encode or decode</label>
+        <input class="bttn" type="text" placeholder="" name="rot13-checker" id="js-rot13-value" value="OBAWBHE">
+        <a href="#0" class="bttn" onclick="rot13(document.getElementById('js-rot13-value').value)">Submit</a>
+      </form>
+
+      <div id="result">
+
+      </div>
+    </div>
+
+  </div>
+  <script src="scripts/main.min.js"></script>
+
+</body>
+
+</html>
