@@ -1,29 +1,56 @@
 "use strict";
-
-/* main.js */
-
 /* ROT13 cipher */
-function rot13(str) {
-  var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+
+var isValid = function isValid(str) {
+  return typeof str === 'string';
+};
+
+var charUpper = function charUpper(str) {
+  var firstChar = 'A'.charCodeAt(); // 65 
+
+  var lastChar = 'Z'.charCodeAt(); // 90
+
+  var strTemp = str.charCodeAt();
+
+  if (strTemp + 13 > lastChar) {
+    return String.fromCharCode(firstChar + (strTemp + 12 - lastChar));
+  }
+
+  return String.fromCharCode(strTemp + 13);
+};
+
+var charLower = function charLower(str) {
+  var firstChar = 'a'.charCodeAt(); // 97
+
+  var lastChar = 'z'.charCodeAt(); // 122
+
+  var strTemp = str.charCodeAt();
+
+  if (strTemp + 13 > lastChar) {
+    return String.fromCharCode(firstChar + (strTemp + 12 - lastChar));
+  }
+
+  return String.fromCharCode(strTemp + 13);
+};
+
+var rot13 = function rot13(str) {
+  if (!isValid(str)) {
+    return 'error';
+  }
+
   var rot13 = '';
-  var count = 0;
 
   for (var i = 0; i < str.length; i++) {
-    if (alphabet.includes(str[i])) {
-      count = alphabet.indexOf(str[i]) + 13;
+    var strTemp = str.charAt(i);
 
-      if (count >= 26) {
-        count = count - 26;
-        rot13 += alphabet[count];
-      } else {
-        rot13 += alphabet[count];
-      }
+    if (strTemp === strTemp.toUpperCase() && strTemp.charCodeAt() <= 122 && strTemp.charCodeAt() >= 65) {
+      rot13 += charUpper(strTemp);
+    } else if (strTemp === strTemp.toLowerCase() && strTemp.charCodeAt() <= 122 && strTemp.charCodeAt() >= 65) {
+      rot13 += charLower(strTemp);
     } else {
-      rot13 += str[i];
+      rot13 += strTemp;
     }
   }
 
   return document.getElementById("result").innerHTML = rot13;
-}
-
-;
+};
